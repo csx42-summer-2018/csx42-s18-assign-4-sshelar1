@@ -1,21 +1,24 @@
 package maxKVisitors.driver;
 
 import maxKVisitors.util.FileProcessor;
+import maxKVisitors.util.MyArray;
 import maxKVisitors.util.MyLogger;
+import maxKVisitors.util.MyVector;
+import maxKVisitors.util.PopulateVisitor;
 import maxKVisitors.util.Results;
 
 public class Driver{
 
 	
 	public static void main(String[] args) {
-		FileProcessor fileProcessorInputFile = null, fileProcessorDeleteFile=null;
-		Results results = null, resultBackUp1= null, resultBackUp2=null;
+		FileProcessor fileProcessor = null;
+		Results results = null;
 		int debugLevel=-1;
 		String line = null;
 		/**
 		 * Checking for valid arguments i.e 3
 		 */
-		if (args.length != 6) {
+		if (args.length != 3) {
 			System.out.println("Invaid number of arguments");
 			System.exit(1);
 		}
@@ -24,7 +27,7 @@ public class Driver{
 		 * Checking for valid debug level
 		 */
 		try {
-			debugLevel = Integer.parseInt(args[5]);
+			debugLevel = Integer.parseInt(args[2]);
 			MyLogger.setDebugValue(debugLevel);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -44,7 +47,14 @@ public class Driver{
 		 * Checking for empty input file
 		 */
 		
-		fileProcessorInputFile = new FileProcessor(args[0]);
+		fileProcessor = new FileProcessor(args[0]);
+		results = new Results(args[1]);
+		
+		MyVector myVector = new MyVector();
+		MyArray myArray = new MyArray();
+		PopulateVisitor populateVisitor = new PopulateVisitor(fileProcessor);
+		
+		
 	}
 	
 }

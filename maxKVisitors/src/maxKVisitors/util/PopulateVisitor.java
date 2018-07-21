@@ -1,17 +1,13 @@
 package maxKVisitors.util;
 
-public class MyVector implements ADT_Interface, VisitorI{
+public class PopulateVisitor implements VisitorI{
 
-	public MyVector() {
+	private FileProcessor fileProcessor;
+	public PopulateVisitor(FileProcessor fileProcessorIn) {
 		// TODO Auto-generated constructor stub
+		fileProcessor = fileProcessorIn;
 	}
 	
-	@Override
-	public void addData(int data) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	@Override
 	public void visit(ADT_Interface adt) {
 		// TODO Auto-generated method stub

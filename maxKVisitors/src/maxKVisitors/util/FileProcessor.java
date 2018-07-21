@@ -39,10 +39,10 @@ public class FileProcessor {
 	 * @return
 	 */
 	
-	public String readLine() {
+	public Integer readLine() {
 		MyLogger.writeMessage("Fileprocessor processing input file", MyLogger.DebugLevel.FILE_PROCESSOR);
 		while (scanner.hasNextLine()) {
-			return scanner.nextLine();
+			return Integer.parseInt(scanner.nextLine());
 		}
 		return null;
 	}
