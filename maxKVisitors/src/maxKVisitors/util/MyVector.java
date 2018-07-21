@@ -36,9 +36,9 @@ public class MyVector implements ADT_Interface, VisitorI{
 	
 
 	@Override
-	public int getElement(int j) {
+	public int getElement(int index) {
 		// TODO Auto-generated method stub
-		return 0;
+		return integers.get(index);
 	}
 
 	@Override
@@ -47,4 +47,13 @@ public class MyVector implements ADT_Interface, VisitorI{
 		integers.setElementAt(data, index);
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < integers.size(); i++) {
+			builder.append(integers.get(i) + " ");
+		}
+		return builder.toString();
+	}
 }

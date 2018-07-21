@@ -37,9 +37,11 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	}
 	
 	@Override
-	public void writeToStdout(String s) {
+	public void writeToStdout() {
 		// TODO Auto-generated method stub
-		System.out.println(s);
+		for (int i = 0; i < trace.size(); i++) {
+			System.out.println(trace.get(i));
+		}
 	}
 
 	@Override

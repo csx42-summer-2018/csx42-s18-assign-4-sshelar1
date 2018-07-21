@@ -45,4 +45,14 @@ public class MyArray implements ADT_Interface, VisitorI{
 		integers.set(index, data);
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < integers.size(); i++) {
+			builder.append(integers.get(i) + " ");
+		}
+		return builder.toString();
+	}
 }

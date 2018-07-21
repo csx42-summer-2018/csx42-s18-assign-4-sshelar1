@@ -53,23 +53,37 @@ public class Driver{
 		
 		MyVector myVector_maxHeap = new MyVector();
 		MyArray myArray_maxHeap = new MyArray();
-		PopulateVisitor populateVisitor = new PopulateVisitor(fileProcessor);
+		PopulateVisitor populateVisitor;
+		
 		ModifiedBubbleSortVisitor bubbleSortVisitor = new ModifiedBubbleSortVisitor();
 
+		populateVisitor = new PopulateVisitor(fileProcessor);
 		myVector_maxHeap.accept(populateVisitor);
-		myArray_maxHeap.accept(populateVisitor);
-		fileProcessor.close();
 		myVector_maxHeap.accept(bubbleSortVisitor);
-		myArray_maxHeap.accept(bubbleSortVisitor);
+		fileProcessor.close();
 		
 		fileProcessor = new FileProcessor(args[0]);
+		populateVisitor = new PopulateVisitor(fileProcessor);
+		myArray_maxHeap.accept(populateVisitor);
+		myArray_maxHeap.accept(bubbleSortVisitor);
+		fileProcessor.close();
+		
+		
+		
+		results.storeNewResult(myVector_maxHeap.toString());
+		results.storeNewResult(myArray_maxHeap.toString());
+		results.writeToFile();
+		results.writeToStdout();
+		
+		
+		/*fileProcessor = new FileProcessor(args[0]);
 		MyVector myVector_modifiedBubbleSort = new MyVector();
 		MyArray myArray_modifiedBubbleSort = new MyArray();
 		MaxHeapVisitor heapVisitor = new MaxHeapVisitor(fileProcessor);
 		
 		myVector_modifiedBubbleSort.accept(heapVisitor);
 		myArray_modifiedBubbleSort.accept(heapVisitor);
-		fileProcessor.close();
+		fileProcessor.close();*/
 		
 	}
 	
