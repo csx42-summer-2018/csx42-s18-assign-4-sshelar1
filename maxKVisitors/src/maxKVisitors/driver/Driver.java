@@ -48,43 +48,48 @@ public class Driver{
 		 * Checking for empty input file
 		 */
 		
-		fileProcessor = new FileProcessor(args[0]);
-		results = new Results(args[1]);
 		
-		MyVector myVector_maxHeap = new MyVector();
-		MyArray myArray_maxHeap = new MyArray();
+		results = new Results(args[1]);
 		PopulateVisitor populateVisitor;
 		
+		
+		MyArray myArray_modifiedBubbleSort = new MyArray();
+		MyVector myVector_modifiedBubbleSort = new MyVector();
 		ModifiedBubbleSortVisitor bubbleSortVisitor = new ModifiedBubbleSortVisitor();
 
+		fileProcessor = new FileProcessor(args[0]);
 		populateVisitor = new PopulateVisitor(fileProcessor);
-		myVector_maxHeap.accept(populateVisitor);
-		myVector_maxHeap.accept(bubbleSortVisitor);
+		myArray_modifiedBubbleSort.accept(populateVisitor);
+		myArray_modifiedBubbleSort.accept(bubbleSortVisitor);
 		fileProcessor.close();
 		
 		fileProcessor = new FileProcessor(args[0]);
 		populateVisitor = new PopulateVisitor(fileProcessor);
-		myArray_maxHeap.accept(populateVisitor);
-		myArray_maxHeap.accept(bubbleSortVisitor);
+		myVector_modifiedBubbleSort.accept(populateVisitor);
+		myVector_modifiedBubbleSort.accept(bubbleSortVisitor);
 		fileProcessor.close();
 		
 		
+		MaxHeapVisitor maxHeapVisitor;
+		fileProcessor = new FileProcessor(args[0]);
+		MyArray myArray_heapSort = new MyArray();
+		MyVector myVector_heapSort = new MyVector();
+		maxHeapVisitor = new MaxHeapVisitor(fileProcessor);
+		myArray_heapSort.accept(maxHeapVisitor);
+		fileProcessor.close();
 		
-		results.storeNewResult(myVector_maxHeap.toString());
-		results.storeNewResult(myArray_maxHeap.toString());
+		fileProcessor = new FileProcessor(args[0]);
+		maxHeapVisitor = new MaxHeapVisitor(fileProcessor);
+		myVector_heapSort.accept(maxHeapVisitor);
+		fileProcessor.close();
+		
+		
+		results.storeNewResult(myArray_modifiedBubbleSort.toString());
+		results.storeNewResult(myVector_modifiedBubbleSort.toString());
+		results.storeNewResult(myArray_heapSort.toString());
+		results.storeNewResult(myVector_heapSort.toString());
 		results.writeToFile();
 		results.writeToStdout();
-		
-		
-		/*fileProcessor = new FileProcessor(args[0]);
-		MyVector myVector_modifiedBubbleSort = new MyVector();
-		MyArray myArray_modifiedBubbleSort = new MyArray();
-		MaxHeapVisitor heapVisitor = new MaxHeapVisitor(fileProcessor);
-		
-		myVector_modifiedBubbleSort.accept(heapVisitor);
-		myArray_modifiedBubbleSort.accept(heapVisitor);
-		fileProcessor.close();*/
-		
 	}
 	
 }
