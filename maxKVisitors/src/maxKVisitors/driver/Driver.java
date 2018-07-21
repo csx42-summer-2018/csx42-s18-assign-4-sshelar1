@@ -69,7 +69,7 @@ public class Driver{
 		
 		myVector_modifiedBubbleSort.accept(heapVisitor);
 		myArray_modifiedBubbleSort.accept(heapVisitor);
-		
+		fileProcessor.close();
 		
 	}
 	

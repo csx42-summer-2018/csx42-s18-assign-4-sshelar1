@@ -11,7 +11,10 @@ public class PopulateVisitor implements VisitorI{
 	@Override
 	public void visit(ADT_Interface adt) {
 		// TODO Auto-generated method stub
-		
+		Integer integer;
+		while((integer = fileProcessor.nextInt())!=null) {
+			adt.addData(integer);
+		}
 	}
 
 }
