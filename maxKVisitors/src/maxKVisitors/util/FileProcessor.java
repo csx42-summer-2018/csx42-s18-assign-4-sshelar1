@@ -46,4 +46,8 @@ public class FileProcessor {
 		}
 		return null;
 	}
+	
+	public void close() {
+		scanner.close();
+	}
 }

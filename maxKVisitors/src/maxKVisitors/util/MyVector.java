@@ -18,4 +18,9 @@ public class MyVector implements ADT_Interface, VisitorI{
 		
 	}
 
+	public void accept(VisitorI populateVisitor) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

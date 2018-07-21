@@ -1,6 +1,8 @@
 package maxKVisitors.driver;
 
 import maxKVisitors.util.FileProcessor;
+import maxKVisitors.util.MaxHeapVisitor;
+import maxKVisitors.util.ModifiedBubbleSortVisitor;
 import maxKVisitors.util.MyArray;
 import maxKVisitors.util.MyLogger;
 import maxKVisitors.util.MyVector;
@@ -14,7 +16,6 @@ public class Driver{
 		FileProcessor fileProcessor = null;
 		Results results = null;
 		int debugLevel=-1;
-		String line = null;
 		/**
 		 * Checking for valid arguments i.e 3
 		 */
@@ -50,9 +51,24 @@ public class Driver{
 		fileProcessor = new FileProcessor(args[0]);
 		results = new Results(args[1]);
 		
-		MyVector myVector = new MyVector();
-		MyArray myArray = new MyArray();
+		MyVector myVector_maxHeap = new MyVector();
+		MyArray myArray_maxHeap = new MyArray();
 		PopulateVisitor populateVisitor = new PopulateVisitor(fileProcessor);
+		ModifiedBubbleSortVisitor bubbleSortVisitor = new ModifiedBubbleSortVisitor();
+
+		myVector_maxHeap.accept(populateVisitor);
+		myArray_maxHeap.accept(populateVisitor);
+		fileProcessor.close();
+		myVector_maxHeap.accept(bubbleSortVisitor);
+		myArray_maxHeap.accept(bubbleSortVisitor);
+		
+		fileProcessor = new FileProcessor(args[0]);
+		MyVector myVector_modifiedBubbleSort = new MyVector();
+		MyArray myArray_modifiedBubbleSort = new MyArray();
+		MaxHeapVisitor heapVisitor = new MaxHeapVisitor(fileProcessor);
+		
+		myVector_modifiedBubbleSort.accept(heapVisitor);
+		myArray_modifiedBubbleSort.accept(heapVisitor);
 		
 		
 	}
