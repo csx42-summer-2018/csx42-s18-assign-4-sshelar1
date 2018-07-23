@@ -7,6 +7,7 @@ public class MyVector implements ADT_Interface, VisitorI{
 	private Vector<Integer> integers;
 	public MyVector() {
 		// TODO Auto-generated constructor stub
+		MyLogger.writeMessage("MyVector constructor called", MyLogger.DebugLevel.CONSTRUCTOR);
 		integers = new Vector<Integer>();
 	}
 	

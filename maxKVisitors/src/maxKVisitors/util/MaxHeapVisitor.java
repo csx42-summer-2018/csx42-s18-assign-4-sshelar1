@@ -10,12 +10,14 @@ public class MaxHeapVisitor implements VisitorI{
 	
 	public MaxHeapVisitor(FileProcessor fileProcessorIn) {
 		// TODO Auto-generated constructor stub
+		MyLogger.writeMessage("MaxHeapVisitor constructor called", MyLogger.DebugLevel.CONSTRUCTOR);
 		fileProcessor = fileProcessorIn;
 	}
 
 	@Override
 	public void visit(ADT_Interface adt) {
 		// TODO Auto-generated method stub
+		MyLogger.writeMessage("Applying the MaxHeapVisitor", MyLogger.DebugLevel.APPLYINGVISITORS);
 		Integer integer;
 		while((integer = fileProcessor.nextInt())!=null) {
 			adt.addData(integer);

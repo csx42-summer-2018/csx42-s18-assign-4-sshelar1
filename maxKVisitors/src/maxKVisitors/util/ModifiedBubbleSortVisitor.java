@@ -2,9 +2,14 @@ package maxKVisitors.util;
 
 public class ModifiedBubbleSortVisitor implements VisitorI{
 
+	public ModifiedBubbleSortVisitor() {
+		// TODO Auto-generated constructor stub
+		MyLogger.writeMessage("ModifiedBubbleSortVisitor constructor called", MyLogger.DebugLevel.CONSTRUCTOR);
+	}
 	@Override
 	public void visit(ADT_Interface adt) {
 		// TODO Auto-generated method stub
+		MyLogger.writeMessage("Applying the ModifiedBubbleSortVisitor", MyLogger.DebugLevel.APPLYINGVISITORS);
 		bubbleSort(adt);
 	}
 

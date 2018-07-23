@@ -11,11 +11,12 @@ import maxKVisitors.util.Results;
 
 public class Driver{
 
-	
 	public static void main(String[] args) {
+		
 		FileProcessor fileProcessor = null;
 		Results results = null;
 		int debugLevel=-1;
+		
 		/**
 		 * Checking for valid arguments i.e 3
 		 */
@@ -39,20 +40,15 @@ public class Driver{
 		/**
 		 * Checks if the debug level is in range or not
 		 */
-		if (debugLevel < 0 || debugLevel > 4) {
+		if (debugLevel < 0 || debugLevel > 3) {
 			System.out.println("Debug value out of range");
 			System.exit(1);
 		}
 		
-		/**
-		 * Checking for empty input file
-		 */
-		
-		
 		results = new Results(args[1]);
-		PopulateVisitor populateVisitor;
+		PopulateVisitor populateVisitor=null;
 		
-		
+		//Logic for first visitor for populateVisitor and bubbleSortVisitor
 		MyArray myArray_modifiedBubbleSort = new MyArray();
 		MyVector myVector_modifiedBubbleSort = new MyVector();
 		ModifiedBubbleSortVisitor bubbleSortVisitor = new ModifiedBubbleSortVisitor();
@@ -69,11 +65,12 @@ public class Driver{
 		myVector_modifiedBubbleSort.accept(bubbleSortVisitor);
 		fileProcessor.close();
 		
-		
+		//Logic for second visitor for maxHeapVisitor
 		MaxHeapVisitor maxHeapVisitor;
-		fileProcessor = new FileProcessor(args[0]);
 		MyArray myArray_heapSort = new MyArray();
 		MyVector myVector_heapSort = new MyVector();
+		
+		fileProcessor = new FileProcessor(args[0]);
 		maxHeapVisitor = new MaxHeapVisitor(fileProcessor);
 		myArray_heapSort.accept(maxHeapVisitor);
 		fileProcessor.close();
@@ -83,7 +80,7 @@ public class Driver{
 		myVector_heapSort.accept(maxHeapVisitor);
 		fileProcessor.close();
 		
-		
+		//Logic for writing output to file as well as standard output 
 		results.storeNewResult(myArray_modifiedBubbleSort.toString());
 		results.storeNewResult(myVector_modifiedBubbleSort.toString());
 		results.storeNewResult(myArray_heapSort.toString());

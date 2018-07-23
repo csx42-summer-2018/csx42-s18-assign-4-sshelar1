@@ -3,8 +3,7 @@ package maxKVisitors.util;
 public class MyLogger {
 
 	// FIXME: Add more enum values as needed for the assignment
-    public static enum DebugLevel { CONSTRUCTOR, FILE_PROCESSOR, CLONNING, CHANGEINPOOL,
-                                   NONE};
+    public static enum DebugLevel { CONSTRUCTOR, FILE_PROCESSOR, APPLYINGVISITORS, NONE };
 
     private static DebugLevel debugLevel;
 
@@ -13,8 +12,7 @@ public class MyLogger {
     public static void setDebugValue (int levelIn) {
 
     	switch (levelIn) {
-    	    case 4: debugLevel = DebugLevel.CHANGEINPOOL; break;
-    	    case 3: debugLevel = DebugLevel.CLONNING; break;
+    	    case 3: debugLevel = DebugLevel.APPLYINGVISITORS; break;
     		case 2: debugLevel = DebugLevel.CONSTRUCTOR; break;
 			case 1: debugLevel = DebugLevel.FILE_PROCESSOR; break;
 			default: debugLevel = DebugLevel.NONE; break;

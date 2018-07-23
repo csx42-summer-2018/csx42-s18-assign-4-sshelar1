@@ -5,5 +5,4 @@ public interface ADT_Interface {
 	public int getSize();
 	public int getElement(int j);
 	public void setElement(int j, int element);
-	
 }

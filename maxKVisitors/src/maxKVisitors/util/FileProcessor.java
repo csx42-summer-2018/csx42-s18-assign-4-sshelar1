@@ -13,7 +13,6 @@ public class FileProcessor {
 	/**
 	 * constructor which sets the private data members to the default values
 	 */
-	
 	public FileProcessor(String string) {
 		// TODO Auto-generated constructor stub
 		file = new File(string);
@@ -34,11 +33,11 @@ public class FileProcessor {
 		}
 	}
 	
+	
 	/**
 	 * this method reads the elements line by line
 	 * @return
 	 */
-	
 	public Integer nextInt() {
 		MyLogger.writeMessage("Fileprocessor processing input file", MyLogger.DebugLevel.FILE_PROCESSOR);
 		String line;
